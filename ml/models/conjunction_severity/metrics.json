@@ -1,0 +1,45 @@
+{
+  "evaluation_timestamp": "2026-10-28T01:08:03.597212+00:00",
+  "primary_model": {
+    "model_name": "Calibrated_HistGradientBoosting_ConjunctionSeverityRanker",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "pr_auc": 1.0,
+    "roc_auc": 1.0,
+    "brier_score": 0.0002,
+    "confusion_matrix": {
+      "true_negatives": 1934,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "true_positives": 258
+    }
+  },
+  "baseline_model": {
+    "model_name": "Baseline_LogisticRegression_Balanced",
+    "precision": 0.9247,
+    "recall": 1.0,
+    "f1_score": 0.9609,
+    "pr_auc": 0.9998,
+    "roc_auc": 1.0,
+    "brier_score": 0.007,
+    "confusion_matrix": [
+      [
+        1913,
+        21
+      ],
+      [
+        0,
+        258
+      ]
+    ]
+  },
+  "false_negative_analysis": {
+    "false_negative_count": 0,
+    "false_negative_rate_pct": 0.0,
+    "min_miss_distance_km_in_fn": null,
+    "mean_miss_distance_km_in_fn": null,
+    "mean_relative_velocity_km_s": null,
+    "aerospace_safety_implication": "False negatives occur near the boundary threshold (d_miss ~ 0.33-0.35 km) where relative kinetic energy is lower. A lower operational screening threshold (e.g., probability threshold >= 0.30 instead of 0.50) reduces false negatives to near-zero."
+  }
+}

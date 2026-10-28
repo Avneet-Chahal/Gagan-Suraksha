@@ -1,0 +1,398 @@
+/* ==========================================================================
+   GAGAN SURAKSHA - COLLISION RISK & CONJUNCTION ASSESSMENT STYLING
+   ========================================================================== */
+
+.collision-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+/* 1. Encounter Selector Strip */
+.encounter-selector-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--space-bg-card);
+  border: 1px solid var(--space-border);
+  border-radius: var(--radius-md);
+  padding: 10px 16px;
+  backdrop-filter: blur(12px);
+  flex-wrap: wrap;
+}
+
+.encounter-select-dropdown {
+  background: rgba(3, 7, 18, 0.7);
+  border: 1px solid var(--space-border);
+  border-radius: var(--radius-sm);
+  color: #ffffff;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  min-width: 340px;
+}
+
+.encounter-select-dropdown option {
+  background: #060b19;
+  color: #ffffff;
+}
+
+/* 2. Top Metric Strip */
+.collision-metric-strip {
+  display: grid;
+  grid-template-columns: 320px repeat(3, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 1280px) {
+  .collision-metric-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .collision-metric-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Hero Probability Card */
+.pc-hero-card {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(3, 7, 18, 0.85) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.pc-hero-card.medium-risk {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(3, 7, 18, 0.85) 100%);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.pc-hero-card.low-risk {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(3, 7, 18, 0.85) 100%);
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+.pc-hero-card.neutral-risk {
+  background: linear-gradient(135deg, rgba(148, 163, 184, 0.08) 0%, rgba(3, 7, 18, 0.85) 100%);
+  border-color: rgba(148, 163, 184, 0.25);
+}
+
+.pc-hero-value {
+  font-size: 1.85rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 6px 0 2px 0;
+}
+
+/* Detailed Metric Cards */
+.metric-card-detailed {
+  background: var(--space-bg-card);
+  border: 1px solid var(--space-border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 6px;
+  backdrop-filter: blur(12px);
+}
+
+.metric-card-detailed .metric-title {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.metric-card-detailed .metric-primary-val {
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: #ffffff;
+}
+
+.metric-card-detailed .metric-sub-note {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+
+/* 3. Main Workspace Layout */
+.collision-workspace-grid {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: 12px;
+  align-items: start;
+}
+
+@media (max-width: 1440px) {
+  .collision-workspace-grid {
+    grid-template-columns: 1fr 420px;
+  }
+}
+
+@media (max-width: 1150px) {
+  .collision-workspace-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 4. Encounter Plane / B-Plane Canvas Container */
+.bplane-canvas-container {
+  background: radial-gradient(circle at center, rgba(3, 10, 28, 0.95) 0%, rgba(2, 6, 18, 0.98) 100%);
+  border: 1px solid var(--space-border);
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 480px;
+}
+
+.bplane-canvas-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--space-border-subtle);
+  background: rgba(3, 7, 18, 0.4);
+}
+
+.bplane-controls-strip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(3, 7, 18, 0.6);
+  border-bottom: 1px solid var(--space-border-subtle);
+  font-size: 0.72rem;
+  flex-wrap: wrap;
+}
+
+.bplane-toggle-btn {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid var(--space-border);
+  border-radius: 4px;
+  color: var(--text-secondary);
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.15s ease;
+}
+
+.bplane-toggle-btn.active {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: var(--accent-cyan);
+  color: #ffffff;
+}
+
+.bplane-legend {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 16px;
+  background: rgba(3, 7, 18, 0.6);
+  border-top: 1px solid var(--space-border-subtle);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.legend-line {
+  width: 14px;
+  height: 2px;
+}
+
+/* 5. Right Analysis Tabs Panel */
+.analysis-tabs-card {
+  background: var(--space-bg-card);
+  border: 1px solid var(--space-border);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(14px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.tab-nav-bar {
+  display: flex;
+  border-bottom: 1px solid var(--space-border);
+  background: rgba(3, 7, 18, 0.5);
+  overflow-x: auto;
+}
+
+.tab-nav-btn {
+  padding: 10px 14px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.tab-nav-btn:hover {
+  color: #ffffff;
+}
+
+.tab-nav-btn.active {
+  color: var(--accent-cyan);
+  border-bottom-color: var(--accent-cyan);
+  background: rgba(56, 189, 248, 0.06);
+}
+
+.tab-content-area {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* 6. Quantile Whisker Visualizer */
+.quantile-whisker-box {
+  background: rgba(3, 7, 18, 0.55);
+  border: 1px solid var(--space-border);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.whisker-track {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  position: relative;
+  margin: 18px 8px 24px 8px;
+}
+
+.whisker-spread {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(56, 189, 248, 0.4), rgba(239, 68, 68, 0.6));
+  border-radius: 4px;
+}
+
+.whisker-pin {
+  position: absolute;
+  top: -6px;
+  width: 4px;
+  height: 20px;
+  border-radius: 2px;
+  transform: translateX(-50%);
+}
+
+.whisker-pin-q50 {
+  background: #ffffff;
+  box-shadow: 0 0 8px #ffffff;
+  top: -8px;
+  height: 24px;
+  width: 4px;
+}
+
+.whisker-label {
+  position: absolute;
+  top: 22px;
+  transform: translateX(-50%);
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* 7. Calibration Comparison Grid */
+.calibration-comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.calibration-card {
+  background: rgba(3, 7, 18, 0.6);
+  border: 1px solid var(--space-border);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.calibration-card-title {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.calibration-card-val {
+  font-size: 1.2rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+/* 8. CDM Evolution Table */
+.cdm-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.72rem;
+}
+
+.cdm-history-table th {
+  padding: 6px 8px;
+  text-align: left;
+  color: var(--text-muted);
+  font-weight: 600;
+  border-bottom: 1px solid var(--space-border-subtle);
+  background: rgba(3, 7, 18, 0.3);
+}
+
+.cdm-history-table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.cdm-history-table tr:hover {
+  background: rgba(56, 189, 248, 0.04);
+}

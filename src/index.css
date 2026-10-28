@@ -1,0 +1,12 @@
+@import './styles/global.css';
+@import './styles/layout.css';
+@import './styles/pages.css';
+@import './styles/dashboard.css';
+@import './styles/satellites.css';
+@import './styles/tracking.css';
+@import './styles/encounters.css';
+@import './styles/collision-risk.css';
+@import './styles/maneuver-planner.css';
+@import './styles/analytics.css';
+@import './styles/alerts.css';
+@import './styles/settings.css';

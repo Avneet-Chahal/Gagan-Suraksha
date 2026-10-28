@@ -1,0 +1,92 @@
+{
+  "min_range_km": {
+    "description": "Minimum orthogonal separation distance between objects at TCA",
+    "unit": "km",
+    "type": "float"
+  },
+  "rel_vel_km_s": {
+    "description": "Relative velocity magnitude at closest approach instant",
+    "unit": "km/s",
+    "type": "float"
+  },
+  "relative_kinetic_energy": {
+    "description": "Encounter kinetic energy proxy (0.5 * rel_vel^2)",
+    "unit": "(km/s)^2",
+    "type": "float"
+  },
+  "momentum_transfer_potential": {
+    "description": "Proxy for destructive momentum concentration: rel_vel / max(min_range, 0.005)",
+    "unit": "(km/s)/km",
+    "type": "float"
+  },
+  "lead_time_days": {
+    "description": "Primary spacecraft propagation horizon from TLE epoch to TCA",
+    "unit": "days",
+    "type": "float"
+  },
+  "secondary_lead_time_days": {
+    "description": "Secondary object propagation horizon from TLE epoch to TCA",
+    "unit": "days",
+    "type": "float"
+  },
+  "lead_time_diff_days": {
+    "description": "Absolute divergence between primary and secondary observation epochs",
+    "unit": "days",
+    "type": "float"
+  },
+  "max_propagation_horizon_days": {
+    "description": "Maximum propagation duration (indicates TLE covariance ellipsoid error growth)",
+    "unit": "days",
+    "type": "float"
+  },
+  "inclination_1_deg": {
+    "description": "Primary spacecraft orbital inclination",
+    "unit": "degrees",
+    "type": "float"
+  },
+  "inclination_2_deg": {
+    "description": "Secondary object orbital inclination",
+    "unit": "degrees",
+    "type": "float"
+  },
+  "inclination_diff_deg": {
+    "description": "Absolute difference in orbital inclination between planes",
+    "unit": "degrees",
+    "type": "float"
+  },
+  "altitude_1_km": {
+    "description": "Primary spacecraft mean orbital altitude above WGS-84 reference",
+    "unit": "km",
+    "type": "float"
+  },
+  "altitude_2_km": {
+    "description": "Secondary object mean orbital altitude above WGS-84 reference",
+    "unit": "km",
+    "type": "float"
+  },
+  "altitude_diff_km": {
+    "description": "Absolute difference in mean orbital altitude",
+    "unit": "km",
+    "type": "float"
+  },
+  "eccentricity_max": {
+    "description": "Maximum orbital eccentricity between the two objects",
+    "unit": "dimensionless",
+    "type": "float"
+  },
+  "period_diff_min": {
+    "description": "Absolute difference in orbital revolution period",
+    "unit": "minutes",
+    "type": "float"
+  },
+  "is_debris_encounter": {
+    "description": "Binary flag indicating whether one or both objects are non-maneuverable debris",
+    "unit": "binary",
+    "type": "int"
+  },
+  "is_indian_spacecraft": {
+    "description": "Binary flag indicating whether the conjunction involves a monitored ISRO asset",
+    "unit": "binary",
+    "type": "int"
+  }
+}

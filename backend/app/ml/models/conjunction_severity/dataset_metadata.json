@@ -1,0 +1,19 @@
+{
+  "dataset_name": "ISRO_NETRA_Conjunctions_2022_Historical_Archive",
+  "dataset_path": "F:\\Gagan Suraksha\\backend\\data\\conjunctions_data.json",
+  "dataset_sha256": "1da6c8d57f1de7735d51aec818a131cd5f6461facb5f073387efffd00765822e",
+  "total_records": 10960,
+  "train_records": 8768,
+  "test_records": 2192,
+  "target_variable": "critical_screening_tier",
+  "critical_distance_threshold_km": 0.35,
+  "temporal_coverage": {
+    "train_start_utc": "2022-01-01T00:36:15.055727+00:00",
+    "train_end_utc": "2022-06-01T00:52:18.915998+00:00",
+    "test_start_utc": "2022-06-01T00:54:30.053591+00:00",
+    "test_end_utc": "2022-06-08T10:20:18.689090+00:00"
+  },
+  "verified_collision_outcomes_exist": false,
+  "scientific_disclaimer": "No catalogued catastrophic breakups occurred for these 2022 close approaches. This model evaluates Conjunction Operational Severity Priority Tier for screening automation, NOT catastrophic collision events.",
+  "training_duration_seconds": 5.22
+}

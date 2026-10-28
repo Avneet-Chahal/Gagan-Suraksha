@@ -1,0 +1,301 @@
+/* ==========================================================================
+   GAGAN SURAKSHA - SATELLITES PAGE STYLING
+   ========================================================================== */
+
+.satellites-page-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr 340px;
+  gap: 12px;
+  height: calc(100vh - 84px);
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1440px) {
+  .satellites-page-layout {
+    grid-template-columns: 290px 1fr 320px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .satellites-page-layout {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+}
+
+/* 1. Left Catalog Panel */
+.sat-catalog-panel {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+  height: 100%;
+}
+
+.catalog-search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(3, 7, 18, 0.65);
+  border: 1px solid var(--space-border);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  transition: border-color 0.15s ease;
+}
+
+.catalog-search-box:focus-within {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+}
+
+.catalog-search-input {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 0.78rem;
+  outline: none;
+  width: 100%;
+}
+
+.catalog-search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.catalog-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.filter-chip {
+  background: rgba(11, 19, 41, 0.6);
+  border: 1px solid var(--space-border-subtle);
+  color: var(--text-secondary);
+  font-size: 0.68rem;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filter-chip:hover {
+  background: rgba(56, 189, 248, 0.1);
+  color: #ffffff;
+  border-color: var(--accent-cyan);
+}
+
+.filter-chip.active {
+  background: var(--accent-blue);
+  color: #ffffff;
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 8px rgba(2, 132, 199, 0.4);
+}
+
+.catalog-list-scroll {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-right: 4px;
+}
+
+.catalog-object-card {
+  background: rgba(3, 7, 18, 0.5);
+  border: 1px solid rgba(56, 189, 248, 0.12);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  transition: all 0.15s ease-in-out;
+}
+
+.catalog-object-card:hover {
+  background: rgba(16, 28, 59, 0.7);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.catalog-object-card.selected {
+  background: rgba(2, 132, 199, 0.22);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.25);
+}
+
+.catalog-obj-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.catalog-obj-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.catalog-obj-meta {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.star-favorite-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+.star-favorite-btn:hover {
+  color: var(--status-warning);
+}
+
+.star-favorite-btn.starred {
+  color: var(--status-warning);
+  filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.5));
+}
+
+/* Empty Catalog state */
+.catalog-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  text-align: center;
+  gap: 10px;
+}
+
+/* 2. Central Space Visualization Panel */
+.sat-3d-viewport-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at 50% 50%, rgba(2, 132, 199, 0.14) 0%, rgba(3, 7, 18, 0.96) 80%);
+  height: 100%;
+}
+
+.sat-3d-header-overlay {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  right: 14px;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+.sat-3d-header-overlay > * {
+  pointer-events: auto;
+}
+
+.sat-selection-pill {
+  background: rgba(7, 13, 27, 0.88);
+  border: 1px solid var(--space-border-strong);
+  backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: #ffffff;
+}
+
+/* 3. Right Profile Panel */
+.sat-profile-panel {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.profile-hero {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--space-border-subtle);
+}
+
+.profile-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: rgba(2, 132, 199, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-cyan);
+  box-shadow: var(--shadow-glow-cyan);
+  flex-shrink: 0;
+}
+
+.profile-details-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-section-card {
+  background: rgba(3, 7, 18, 0.5);
+  border: 1px solid rgba(56, 189, 248, 0.12);
+  border-radius: 6px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.73rem;
+}
+
+.profile-stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-stat-label {
+  color: var(--text-muted);
+}
+
+.profile-stat-val {
+  font-family: var(--font-mono);
+  color: #ffffff;
+}
+
+.profile-action-group {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--space-border-subtle);
+}

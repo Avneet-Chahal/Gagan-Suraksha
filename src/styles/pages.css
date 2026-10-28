@@ -1,0 +1,143 @@
+/* ==========================================================================
+   GAGAN SURAKSHA - PAGE MODULE BASE STYLING
+   ========================================================================== */
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.page-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: var(--space-bg-card);
+  border: 1px solid var(--space-border);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(14px);
+}
+
+.page-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.page-title-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 229, 255, 0.12);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-cyan);
+}
+
+.page-heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+}
+
+.page-subheading {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.page-action-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.page-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-cols-12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.metric-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.metric-card {
+  background: var(--space-bg-card);
+  border: 1px solid var(--space-border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: border-color 0.15s ease;
+}
+
+.metric-card:hover {
+  border-color: var(--space-border-strong);
+}
+
+.metric-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.metric-value {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: var(--font-mono);
+}
+
+.metric-trend {
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.placeholder-panel {
+  background: var(--space-bg-card);
+  border: 1px dashed var(--space-border-strong);
+  border-radius: var(--radius-md);
+  padding: 36px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.placeholder-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-cyan);
+}

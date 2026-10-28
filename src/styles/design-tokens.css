@@ -1,0 +1,59 @@
+/* ==========================================================================
+   GAGAN SURAKSHA - AEROSPACE MISSION CONTROL DESIGN SYSTEM TOKENS
+   Theme: Deep Space Dark, Electric Cyan & Aerospace Blue Accents
+   ========================================================================== */
+
+:root {
+  /* Brand & Core Space Palette */
+  --space-black: #030712;
+  --space-bg: #050b18;
+  --space-bg-card: rgba(11, 19, 41, 0.78);
+  --space-bg-card-hover: rgba(16, 28, 59, 0.85);
+  --space-bg-header: rgba(7, 13, 27, 0.92);
+  --space-bg-sidebar: #060c1c;
+  --space-border: rgba(56, 189, 248, 0.18);
+  --space-border-strong: rgba(56, 189, 248, 0.35);
+  --space-border-subtle: rgba(255, 255, 255, 0.08);
+
+  /* Aerospace Electric Accents */
+  --accent-cyan: #00e5ff;
+  --accent-cyan-hover: #38bdf8;
+  --accent-cyan-dim: rgba(0, 229, 255, 0.12);
+  --accent-blue: #0284c7;
+  --accent-blue-active: #0369a1;
+  --accent-blue-dim: rgba(2, 132, 199, 0.2);
+  --accent-purple: #8b5cf6;
+
+  /* Status Indication Colors */
+  --status-operational: #10b981;
+  --status-operational-dim: rgba(16, 185, 129, 0.15);
+  --status-warning: #f59e0b;
+  --status-warning-dim: rgba(245, 158, 11, 0.15);
+  --status-critical: #ef4444;
+  --status-critical-dim: rgba(239, 68, 68, 0.2);
+  --status-standby: #64748b;
+  --status-standby-dim: rgba(100, 116, 139, 0.2);
+
+  /* Typography Colors */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-highlight: #38bdf8;
+  --text-mono: #38bdf8;
+
+  /* Shadows & Glassmorphic Glow */
+  --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.6), 0 0 1px 1px var(--space-border);
+  --shadow-glow-cyan: 0 0 15px rgba(0, 229, 255, 0.25);
+  --shadow-glow-blue: 0 0 20px rgba(2, 132, 199, 0.3);
+  --shadow-glow-red: 0 0 15px rgba(239, 68, 68, 0.35);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 9999px;
+
+  /* Fonts */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, 'Roboto Mono', Menlo, monospace;
+}

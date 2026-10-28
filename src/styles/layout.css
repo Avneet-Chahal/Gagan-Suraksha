@@ -1,0 +1,372 @@
+/* ==========================================================================
+   GAGAN SURAKSHA - APPLICATION SHELL & LAYOUT STYLES
+   Pixel-aligned with the approved aerospace mission control reference
+   ========================================================================== */
+
+.app-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--space-black);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 85% 90%, rgba(0, 229, 255, 0.04) 0%, transparent 40%),
+    radial-gradient(1px 1px at 25px 35px, rgba(255, 255, 255, 0.45), transparent),
+    radial-gradient(1px 1px at 85px 120px, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(1.5px 1.5px at 170px 80px, rgba(56, 189, 248, 0.5), transparent),
+    radial-gradient(1px 1px at 240px 190px, rgba(255, 255, 255, 0.35), transparent),
+    radial-gradient(1px 1px at 320px 40px, rgba(255, 255, 255, 0.25), transparent);
+  background-size: 100% 100%, 100% 100%, 350px 350px, 400px 400px, 450px 450px, 500px 500px, 550px 550px;
+  color: var(--text-primary);
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Sidebar */
+.app-sidebar {
+  width: 220px;
+  min-width: 220px;
+  height: 100vh;
+  background-color: var(--space-bg-sidebar);
+  border-right: 1px solid var(--space-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px 12px;
+  z-index: 20;
+}
+
+.brand-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 8px 18px 8px;
+  border-bottom: 1px solid var(--space-border-subtle);
+}
+
+.brand-logo-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-cyan);
+  box-shadow: var(--shadow-glow-cyan);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.brand-logo-icon::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-cyan);
+  border-radius: 50%;
+  top: 2px;
+  right: 2px;
+  box-shadow: 0 0 6px var(--accent-cyan);
+}
+
+.brand-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.brand-subtitle {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* Nav links list */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 14px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: all 0.15s ease-in-out;
+  position: relative;
+}
+
+.nav-item:hover {
+  background: rgba(56, 189, 248, 0.08);
+  color: var(--text-primary);
+}
+
+.nav-item.active {
+  background: var(--accent-blue);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(2, 132, 199, 0.45);
+}
+
+.nav-item.active .nav-icon {
+  color: #ffffff;
+}
+
+.nav-icon {
+  width: 17px;
+  height: 17px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: color 0.15s ease;
+}
+
+.nav-item:hover .nav-icon {
+  color: var(--accent-cyan);
+}
+
+.nav-badge {
+  margin-left: auto;
+  background: var(--status-critical);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
+}
+
+/* Sidebar Footer / Network Status Box */
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--space-border-subtle);
+}
+
+.network-status-box {
+  background: rgba(11, 19, 41, 0.65);
+  border: 1px solid var(--space-border);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  font-size: 0.72rem;
+}
+
+.network-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.network-label {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.network-connected {
+  color: var(--status-operational);
+  font-weight: 600;
+}
+
+.ground-station-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.station-details {
+  line-height: 1.35;
+}
+
+.station-name {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.station-coords {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Main Content Area */
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Header */
+.app-header {
+  height: 52px;
+  min-height: 52px;
+  background: var(--space-bg-header);
+  border-bottom: 1px solid var(--space-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.mission-control-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.utc-clock-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-highlight);
+  background: rgba(2, 132, 199, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+}
+
+.view-mode-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid var(--space-border);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.view-mode-button:hover {
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--text-primary);
+  border-color: var(--accent-cyan);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon-button {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s ease;
+}
+
+.icon-button:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+
+.icon-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--status-critical);
+  color: #ffffff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 12px;
+  border-left: 1px solid var(--space-border-subtle);
+}
+
+.user-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: #fff;
+  border: 1.5px solid rgba(56, 189, 248, 0.6);
+}
+
+.user-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.user-role {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+/* Page Viewport */
+.app-viewport {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 16px;
+  position: relative;
+}
