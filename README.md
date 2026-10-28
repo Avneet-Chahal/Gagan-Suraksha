@@ -1,158 +1,209 @@
-# GAGAN SURAKSHA — Space Situational Awareness & Orbital Defense System
+# 🛰️ Gagan Suraksha
+### AI-Powered Satellite Collision Risk Monitoring & Space Situational Awareness
 
-**Gagan Suraksha** is a mission-control aerospace software platform designed for real-time satellite tracking, SGP4 orbital propagation, close-approach screening, machine-learning collision risk quantification, automated Collision Avoidance Maneuver (CAM) planning, and authoritative historical incident analysis.
+Gagan Suraksha is a space situational awareness project designed to analyze satellite conjunctions, monitor orbital objects, and assess potential collision risks using orbital data processing, historical conjunction records, and machine-learning-assisted severity analysis.
 
----
+The goal is to help users identify potentially risky close approaches between space objects and present useful information through a unified dashboard.
 
-## 1. System Architecture
+## ✨ Key Features
 
-- **Frontend**: React 18, TypeScript, Vite, Three.js / Canvas, Lucide Icons, dark navy/black aerospace mission-control UI.
-- **Backend**: Python 3.11+, FastAPI, Uvicorn, SGP4 Astrodynamics Engine, PyTorch / ML state corrector, APScheduler.
-- **Database**: SQLite with SQLAlchemy ORM, indexed schema with zero duplicate models, located at `gagan_suraksha.db`.
-- **Authoritative Data Sources**:
-  - **CelesTrak**: Real-time TLE orbital element ingestion with checksum validation and 6-hour refresh schedule.
-  - **Space-Track.org**: Authenticated historical GP_HISTORY adapter with bounded date range querying.
-  - **NOAA SWPC**: Space weather indices (F10.7 solar flux, Kp geomagnetic storm index, atmospheric density drag models).
+- **Orbital Data Integration:** Designed to work with orbital data providers such as CelesTrak and other supported sources.
+- **Historical Conjunction Analysis:** Processes historical conjunction records for analysis, validation, and model development.
+- **Conjunction Screening:** Identifies potentially close approaches between tracked orbital objects.
+- **ML-Assisted Severity Assessment:** Supports risk/severity analysis using available conjunction features.
+- **Orbital Propagation:** Supports orbital position calculations using compatible orbital data and propagation tools.
+- **Dashboard & API:** Connects backend processing with a frontend interface for presenting satellite and conjunction information.
+- **Data Validation:** Includes tests for data ingestion, orbital providers, screening, persistence, and pipeline components.
+- **Extensible Architecture:** Structured to support additional data sources, prediction methods, and monitoring capabilities.
 
----
+> **Important:** A close approach is not necessarily a collision. Risk estimates depend on data quality, prediction uncertainty, and the availability of reliable conjunction information.
 
-## 2. Windows Quick Start & Startup Commands
+## 🧠 How It Works
 
-Run commands from the repository root: `D:\Gagan Suraksha` (or workspace root `f:\Gagan Suraksha`).
+1. **Collect orbital data** from configured orbital data providers.
+2. **Load historical records** for analysis and validation.
+3. **Process orbital information** and calculate or obtain relevant conjunction features.
+4. **Screen close approaches** between tracked objects.
+5. **Assess severity** using implemented rules and/or a trained model.
+6. **Display results** through the application interface and backend API.
 
-### A. Backend Startup (Canonical Entry Point)
+## 🏗️ Technology Stack
 
-The single consolidated FastAPI application entry point is `backend.main:app` (aliased seamlessly by `backend.app.main:app`):
+The project includes the following technologies and components, subject to the current implementation:
 
-```powershell
-# Using the dedicated virtual environment:
-.\backend\.venv\Scripts\python.exe -m uvicorn backend.main:app --host 127.0.0.1 --port 8000 --reload
+- **Backend:** Python, FastAPI/Uvicorn
+- **Frontend:** TypeScript and a JavaScript-based frontend toolchain
+- **Orbital Data:** CelesTrak and other configured providers
+- **Orbital Mechanics:** SGP4-compatible propagation tools
+- **Machine Learning:** Python-based model and severity pipeline
+- **Testing:** Pytest
+- **Version Control:** Git and GitHub
 
-# Or with system Python:
-python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000 --reload
+## 📂 Project Structure
+
+```text
+Gagan-Suraksha/
+├── backend/
+│   ├── app/
+│   ├── main.py
+│   └── ...
+├── tests/
+│   ├── test_api.py
+│   ├── test_celestrak.py
+│   ├── test_historical_ingestion.py
+│   ├── test_historical_pipeline.py
+│   ├── test_ml_integration.py
+│   ├── test_orbit_propagation.py
+│   ├── test_orbital_providers.py
+│   └── ...
+├── conjunctions_data.json
+├── README.md
+└── ...
 ```
 
-- **Interactive API Documentation (Swagger)**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
-- **API ReDoc**: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
-- **Liveness Probe**: [http://127.0.0.1:8000/api/health](http://127.0.0.1:8000/api/health)
-- **Readiness Probe**: [http://127.0.0.1:8000/api/ready](http://127.0.0.1:8000/api/ready)
+*The structure above is illustrative. Some files and folders may differ in the current repository.*
 
-### B. Frontend Startup
+## ⚙️ Getting Started
+
+### Prerequisites
+
+Install the following before running the project:
+
+- Python 3.11 or another Python version supported by the project's dependencies
+- Node.js and npm, if the frontend uses a Node-based toolchain
+- Git
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Avneet-Chahal/Gagan-Suraksha.git
+cd Gagan-Suraksha
+```
+
+### 2. Set Up the Python Environment
+
+In PowerShell:
 
 ```powershell
-# Install npm dependencies (first time only):
-npm install
+python -m venv backend\.venv
+.\backend\.venv\Scripts\Activate.ps1
+```
 
-# Start Vite development server:
+Install backend dependencies using the project's dependency file. For example, if `requirements.txt` exists inside `backend`:
+
+```powershell
+pip install -r backend\requirements.txt
+```
+
+If dependencies are declared in `pyproject.toml` or another file, follow that file instead.
+
+### 3. Configure Environment Variables
+
+Create a local `.env` file if the project requires API credentials or configuration.
+
+Example:
+
+```env
+# Add only variables required by your application
+# CELESTRAK_BASE_URL=
+# SPACE_TRACK_USERNAME=
+# SPACE_TRACK_PASSWORD=
+```
+
+Use the variable names expected by the actual application configuration. Never commit real credentials, API keys, or passwords to GitHub.
+
+### 4. Start the Backend
+
+Use the startup command documented by the backend's actual entry point. For a FastAPI application, the command may resemble:
+
+```powershell
+python -m uvicorn main:app --reload
+```
+
+Run this from the directory containing the relevant `main.py`, or use the module path required by the project's package structure.
+
+If supported, open the interactive API documentation at:
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+### 5. Start the Frontend
+
+Navigate to the directory containing the frontend's `package.json`:
+
+```powershell
+cd frontend
+npm install
 npm run dev
 ```
 
-- **Frontend Application URL**: [http://localhost:5173/](http://localhost:5173/)
+If the frontend is located elsewhere, use that directory and its documented scripts. Open the local URL printed by the development server.
 
----
+## 📊 Historical Data & Machine Learning
 
-## 3. Environment Configuration (`.env`)
+Historical conjunction records can help analyze close approaches and develop or evaluate severity-assessment methods.
 
-Copy `.env.example` to `.env`:
+Before using historical records for training:
+
+- Validate timestamps, units, object identifiers, and missing values.
+- Check for duplicate conjunction events and inconsistent records.
+- Keep raw source data separate from cleaned and processed datasets.
+- Use chronological or event-based train/validation/test splits to reduce data leakage.
+- Evaluate the model against appropriate baselines.
+- Report metrics only when they have actually been measured on a valid evaluation dataset.
+
+**Scientific limitation:** Historical close approaches alone do not establish whether a collision occurred. Verified collision outcomes or defensible proxy labels are needed to train and evaluate a true collision-outcome classifier. Without them, the model should be described as a risk-ranking or severity-assessment system, not a proven collision predictor.
+
+## 🧪 Testing
+
+The repository contains tests covering components such as:
+
+- API endpoints and application health
+- Historical data ingestion and processing
+- Orbital data providers
+- Orbital propagation and SGP4
+- Conjunction screening
+- ML integration and severity assessment
+- Persistence and end-to-end processing
+
+Run the test suite from the directory containing the project's test configuration:
 
 ```powershell
-cp .env.example .env
+python -m pytest -v
 ```
 
-| Variable | Default Value | Description |
-|---|---|---|
-| `DATABASE_URL` | `sqlite:///./gagan_suraksha.db` | Persistent SQLite database file path. |
-| `API_V1_PREFIX` | `/api` | Root API route prefix. |
-| `HOST` | `127.0.0.1` | Backend network bind interface. |
-| `PORT` | `8000` | Backend network port. |
-| `CORS_ORIGINS` | `["http://localhost:5173", ...]` | Permitted frontend origins. |
-| `SPACETRACK_IDENTITY` | `""` | Space-Track user email (for historical GP_HISTORY). |
-| `SPACETRACK_PASSWORD` | `""` | Space-Track account password. |
-| `CELESTRAK_AUTO_REFRESH` | `true` | Periodic 6-hour TLE ingestion job. |
+Use the project's configured Python environment and install the required test dependencies first. Actual test results should be verified before claiming that all tests pass.
 
-*Scientific Honesty Guarantee*: If Space-Track credentials are not configured, the system reports `CREDENTIALS_REQUIRED` with setup instructions and never fabricates historical queries.
+## 🔐 Data Sources & Reliability
 
----
+Gagan Suraksha is intended to use reliable orbital information from configured data providers.
 
-## 4. API Endpoints Inventory
+- **CelesTrak:** Public orbital element data, subject to source availability and update frequency.
+- **Historical conjunction datasets:** Used according to their documented fields, timestamps, units, and licensing terms.
+- **Additional conjunction warning sources:** Integrate only when the provider offers suitable data and access.
 
-All routes are mounted strictly under the `/api` prefix:
+Orbital elements alone do not provide every operational conjunction parameter, such as probability of collision or covariance-based uncertainty. Results should identify their source, data timestamp, and limitations wherever possible.
 
-- **Satellites**:
-  - `GET /api/satellites`: Filterable, paginated satellite records.
-  - `GET /api/satellites/primary`: Primary monitored spacecraft (Cartosat-2F).
-  - `GET /api/satellites/{norad_id}`: Detailed orbital parameters and SGP4 state.
-  - `GET /api/satellites/live/{norad_id}`: Real-time SGP4 state vector.
-  - `GET /api/satellites/{norad_id}/position`: Single-point TEME/WGS-84 coordinate.
-  - `POST /api/satellites/{norad_id}/orbit/track`: Propagated orbit ground track.
-- **Conjunctions & Close Approaches**:
-  - `GET /api/conjunctions`: Screened conjunction events sorted by TCA with miss distance and collision probability.
-  - `GET /api/conjunctions/{id}`: Conjunction event technical assessment.
-- **Maneuver Planner**:
-  - `GET /api/maneuvers`: Recommended Collision Avoidance Maneuver (CAM) plans.
-  - `POST /api/maneuvers/optimize`: Interactive delta-v and fuel consumption solver.
-- **Space Weather**:
-  - `GET /api/space-weather`: NOAA SWPC geomagnetic Kp index, F10.7 solar flux, and atmospheric drag alerts.
-- **Ground Passes**:
-  - `GET /api/passes/{norad_id}`: SGP4 pass predictions over ISRO ground stations (ISTRAC Bangalore, SDSC Sriharikota, Port Blair, Mauritius).
-- **Historical Date Explorer & Launches**:
-  - `GET /api/events`: Bounded date queries with UTC range, category filters (`launches`, `conjunctions`, `collisions`, `satellite_events`), and coverage status.
-- **Real-Life Incidents Library**:
-  - `GET /api/incidents`: Authoritative historical case studies.
-  - `GET /api/incidents/{id}`: Technical incident breakdown with primary/secondary satellite specs, encounter kinematics, debris consequences, and source links.
-- **Data Status & Sources**:
-  - `GET /api/sources`: Ingestion status for CelesTrak, SGP4, and Space-Track.
-  - `GET /api/sources/spacetrack/status`: Space-Track configuration status.
-  - `POST /api/sources/spacetrack/query`: Bounded GP_HISTORY query adapter.
+## 🚀 Future Improvements
 
----
+- Improve automated orbital data refresh and stale-data detection.
+- Expand historical event validation and data provenance.
+- Add uncertainty-aware conjunction risk assessment where suitable inputs are available.
+- Improve model evaluation with verified labels and leakage-resistant splits.
+- Add monitoring, alerting, and notification workflows.
+- Enhance visualization of orbital objects and close approaches.
+- Improve deployment, documentation, and automated testing.
 
-## 5. Key Features
+## 🤝 Contributing
 
-### Iridium 33 × Cosmos 2251 Collision Replay
-A dedicated **IRIDIUM COLLISION REPLAY** button is prominently featured on both the Dashboard and the Close Approaches page. It opens a detailed modal with:
-- Exact historical facts (10 February 2009, 16:56 UTC, 789 km altitude, 11.65 km/s relative velocity, 584 m pre-event predicted closest approach).
-- Dual satellite specifications (operational US communications satellite vs derelict Russian military satellite).
-- Interactive 20-second time-scrub canvas visualization (-10s to +10s).
-- Debris generation impact analysis (>2,000 catalogued fragments).
-- Verified citations to the CelesTrak Collision Report and NASA Technical Analysis (NTRS 20100008433).
+Contributions and suggestions are welcome.
 
-### Historical Date Explorer
-Accessible via the **DATE EXPLORER / INCIDENTS** action button on the Dashboard:
-- Bounded UTC date picker (preset for January 2025, 1 May 2025, 1 December 2025, and Today).
-- Day-by-day step navigation.
-- Category filtering and real-time search.
-- Truthful data coverage reporting (`COMPLETE_HISTORICAL_SAMPLE`, `PARTIAL_COVERAGE`, or `NO_RECORDS_STORED`).
+1. Fork the repository.
+2. Create a feature branch.
+3. Make your changes and add relevant tests.
+4. Open a pull request describing the changes.
 
-### Real-Life Incidents Library
-Includes three initial case studies:
-1. **Incident A**: Iridium 33 × Cosmos 2251 (`VERIFIED_HISTORICAL_FACT`).
-2. **Incident B**: ESA Aeolus vs Starlink-44 Evasive Maneuver (`VERIFIED_HISTORICAL_FACT`).
-3. **Incident C**: Tiangong Space Station Close Encounters (`VERIFIED_HISTORICAL_FACT` / UN OOSA A/AC.105/1262).
+## ⚠️ Disclaimer
 
----
-
-## 6. Automated Verification Suites
-
-### Run Python Backend Tests (115 tests):
-```powershell
-.\backend\.venv\Scripts\python.exe -m pytest -v
-```
-
-### Run Frontend Integration Integrity Tests (31 checks):
-```powershell
-npm test
-```
-
-### Run Production Build:
-```powershell
-npm run build
-```
-
----
-
-## 7. Troubleshooting
-
-- **Database Locked (`WinError 32`)**: Ensure no stale Python or SQLite processes are holding locks on test databases. All tests use isolated or in-memory fixtures.
-- **Port 8000 in use**: Check running processes with `Get-Process | Where-Object { $_.ProcessName -match 'python' }` or run on a custom port using `--port 8001`.
-- **Space-Track Query Empty**: Register credentials in `.env` (`SPACETRACK_IDENTITY` and `SPACETRACK_PASSWORD`). Queries without credentials safely return `CREDENTIALS_REQUIRED`.
+Gagan Suraksha is a research and development project. Its outputs should not be treated as authoritative collision warnings or as a replacement for validated conjunction
