@@ -1,0 +1,10 @@
+backend/
+ml/
+tests/
+requirements.txt
+*.db
+*.db-journal
+*.log
+.pytest_cache/
+__pycache__/
+.venv/
